@@ -3,6 +3,9 @@
 # Define the version of the Linux Kernel Archive tarball.
 %define LKAver 3.10.5
 
+# Define the version of the aufs-standalone zip file
+%define AUFSver aufs-aufs3-standalone-8b36a1dab528a5d1867f8e8c52c524eecd2d6f82
+
 # Define the buildid, if required.
 #define buildid .
 
@@ -172,6 +175,7 @@ Source0: ftp://ftp.kernel.org/pub/linux/kernel/v3.x/linux-%{LKAver}.tar.xz
 Source1: config-%{version}-i686
 Source2: config-%{version}-i686-NONPAE
 Source3: config-%{version}-x86_64
+Source4: http://sourceforge.net/code-snapshots/git/a/au/aufs/aufs3-standalone.git/%{AUFSver}.zip
 
 %description
 This package provides the Linux kernel (vmlinuz), the core of any
@@ -305,7 +309,16 @@ This package provides the perf tool and the supporting documentation.
 %prep
 %setup -q -n %{name}-%{version} -c
 %{__mv} linux-%{LKAver} linux-%{version}-%{release}.%{_target_cpu}
+unzip %{SOURCE4}
 pushd linux-%{version}-%{release}.%{_target_cpu} > /dev/null
+cp -r ../%{AUFSver}/Documentation/filesystems Documentation/
+cp -r ../%{AUFSver}/Documentation/ABI Documentation/
+cp -r ../%{AUFSver}/fs/aufs fs/
+cp ../%{AUFSver}/include/linux/aufs_type.h include/linux/
+cp ../%{AUFSver}/include/uapi/linux/aufs_type.h include/uapi/linux/
+patch -p 1 < ../%{AUFSver}/aufs3-kbuild.patch
+patch -p 1 < ../%{AUFSver}/aufs3-base.patch
+patch -p 1 < ../%{AUFSver}/aufs3-proc_map.patch
 %{__cp} %{SOURCE1} .
 %{__cp} %{SOURCE2} .
 %{__cp} %{SOURCE3} .
