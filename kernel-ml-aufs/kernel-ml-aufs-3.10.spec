@@ -86,7 +86,7 @@
 %endif
 
 # Set pkg_release.
-%define pkg_release 1%{?buildid}%{?dist}
+%define pkg_release 2%{?buildid}%{?dist}
 
 #
 # Three sets of minimum package version requirements in the form of Conflicts.
@@ -795,6 +795,10 @@ fi
 %endif
 
 %changelog
+* Tue Aug 13 2013 Brian Pitts <brian@polibyte.com> - 3.10.5-2
+- Add AUFS Support
+- Rename package
+
 * Sun Aug 04 2013 Alan Bartlett <ajb@elrepo.org> - 3.10.5-1
 - Updated with the 3.10.5 source tarball.
 
