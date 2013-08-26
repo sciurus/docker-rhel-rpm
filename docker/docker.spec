@@ -1,5 +1,5 @@
 Name:           docker
-Version:        0.5.3
+Version:        0.6.0
 Release:        1%{?dist}
 Summary:        An open source project to pack, ship and run any application as a lightweight container
 
@@ -48,5 +48,8 @@ getent group %{name} >/dev/null || groupadd -r %{name}
 
 
 %changelog
+* Mon Aug 26 2013 Brian Pitts <brian@polibyte.com> - 0.6.0-1
+- Latest docker as of today is 0.6.0
+
 * Thu Aug 16 2013 Brian Pitts <brian@polibyte.com> - 0.5.3-1
 - Create package
