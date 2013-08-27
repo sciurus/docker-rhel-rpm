@@ -4,7 +4,7 @@
 %define LKAver 3.10.5
 
 # Define the version of the aufs-standalone zip file
-%define AUFSver aufs-aufs3-standalone-8b36a1dab528a5d1867f8e8c52c524eecd2d6f82
+%define AUFSver aufs-aufs3-standalone-20e965e7cd385ace8c9c36e64673479eeefe379e
 
 # Define the buildid, if required.
 #define buildid .
