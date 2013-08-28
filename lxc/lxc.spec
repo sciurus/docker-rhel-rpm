@@ -5,7 +5,7 @@ Summary:        Linux Resource Containers
 Group:          Applications/System
 License:        LGPLv2+
 URL:            http://lxc.sourceforge.net
-Source0:        http://lxc.sourceforge.net/download/lxc/%{name}-%{version}.tar.gz
+Source0:        http://downloads.sourceforge.net/project/lxc/lxc/%{name}-%{version}/%{name}-%{version}.tar.gz
 Patch0:         lxc-0.8.0-fedora-template.patch
 BuildRequires:  docbook-utils
 BuildRequires:  kernel-headers
