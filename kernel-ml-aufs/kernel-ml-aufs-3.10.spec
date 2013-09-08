@@ -3,8 +3,8 @@
 # Define the version of the Linux Kernel Archive tarball.
 %define LKAver 3.10.5
 
-# Define the version of the aufs-standalone zip file
-%define AUFSver aufs-aufs3-standalone-20e965e7cd385ace8c9c36e64673479eeefe379e
+# Define the version of the aufs-standalone tarball
+%define AUFSver aufs3-standalone
 
 # Define the buildid, if required.
 #define buildid .
@@ -175,7 +175,7 @@ Source0: ftp://ftp.kernel.org/pub/linux/kernel/v3.x/linux-%{LKAver}.tar.xz
 Source1: config-%{version}-i686
 Source2: config-%{version}-i686-NONPAE
 Source3: config-%{version}-x86_64
-Source4: http://sourceforge.net/code-snapshots/git/a/au/aufs/aufs3-standalone.git/%{AUFSver}.zip
+Source4: %{AUFSver}.tar
 
 %description
 This package provides the Linux kernel (vmlinuz), the core of any
@@ -309,7 +309,8 @@ This package provides the perf tool and the supporting documentation.
 %prep
 %setup -q -n %{name}-%{version} -c
 %{__mv} linux-%{LKAver} linux-%{version}-%{release}.%{_target_cpu}
-unzip %{SOURCE4}
+mkdir %{AUFSver}
+tar xf %{SOURCE4} -C %{AUFSver}
 pushd linux-%{version}-%{release}.%{_target_cpu} > /dev/null
 cp -r ../%{AUFSver}/Documentation/filesystems Documentation/
 cp -r ../%{AUFSver}/Documentation/ABI Documentation/
@@ -795,6 +796,9 @@ fi
 %endif
 
 %changelog
+* Tue Aug 13 2013 Brian Pitts <brian@polibyte.com> - 3.10.5-3
+- Change AUFS source
+
 * Tue Aug 13 2013 Brian Pitts <brian@polibyte.com> - 3.10.5-2
 - Add AUFS Support
 - Rename package
