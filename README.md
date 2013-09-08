@@ -12,9 +12,9 @@ You can build the packages with the following commands. Note that building the k
     # build lxc rpm
     spectool -g -C lxc lxc/lxc.spec
     mock -r epel-6-x86_64 --buildsrpm --spec lxc/lxc.spec --sources lxc --resultdir output
+    mock -r epel-6-x86_64 --rebuild --resultdir output output/lxc-0.8.0-3.el6.src.rpm
 
     # build kernel rpm
-    mock -r epel-6-x86_64 --rebuild --resultdir output output/lxc-0.8.0-3.el6.src.rpm
     spectool -g -C kernel-ml-aufs kernel-ml-aufs/kernel-ml-aufs-3.10.spec
     mock -r epel-6-x86_64 --buildsrpm --spec kernel-ml-aufs/kernel-ml-aufs-3.10.spec --sources kernel-ml-aufs --resultdir output
     mock -r epel-6-x86_64 --rebuild --resultdir output output/kernel-ml-aufs-3.10.5-1.el6.src.rpm
