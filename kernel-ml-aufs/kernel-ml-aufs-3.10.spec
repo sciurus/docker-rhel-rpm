@@ -1,7 +1,7 @@
 %global __spec_install_pre %{___build_pre}
 
 # Define the version of the Linux Kernel Archive tarball.
-%define LKAver 3.10.5
+%define LKAver 3.10.11
 
 # Define the version of the aufs-standalone tarball
 %define AUFSver aufs3-standalone
@@ -86,7 +86,7 @@
 %endif
 
 # Set pkg_release.
-%define pkg_release 2%{?buildid}%{?dist}
+%define pkg_release 1%{?buildid}%{?dist}
 
 #
 # Three sets of minimum package version requirements in the form of Conflicts.
@@ -796,7 +796,10 @@ fi
 %endif
 
 %changelog
-* Tue Aug 13 2013 Brian Pitts <brian@polibyte.com> - 3.10.5-3
+* Sun Sep 08 2013 Brian Pitts <brian@polibyte.com> - 3.10.11-1
+- Updated with the 3.10.11 source tarball.
+
+* Sun Sep 08 2013 Brian Pitts <brian@polibyte.com> - 3.10.5-3
 - Change AUFS source
 
 * Tue Aug 13 2013 Brian Pitts <brian@polibyte.com> - 3.10.5-2
