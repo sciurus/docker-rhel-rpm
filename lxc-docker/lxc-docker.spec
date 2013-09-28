@@ -1,5 +1,5 @@
-Name:           docker
-Version:        0.6.0
+Name:           lxc-docker
+Version:        0.6.3
 Release:        1%{?dist}
 Summary:        An open source project to pack, ship and run any application as a lightweight container
 
@@ -48,6 +48,10 @@ getent group %{name} >/dev/null || groupadd -r %{name}
 
 
 %changelog
+* Sat Sep 28 2013 Brian Pitts <brian@polibyte.com> - 0.6.3-1
+- Latest docker as of today is 0.6.3
+- Rename package to lxc-docker
+
 * Mon Aug 26 2013 Brian Pitts <brian@polibyte.com> - 0.6.0-1
 - Latest docker as of today is 0.6.0
 

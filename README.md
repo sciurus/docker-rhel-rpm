@@ -5,9 +5,9 @@ Before building the packages, be sure to install [fedora-packager](https://dl.fe
 You can build the packages with the following commands. Note that building the kernel can take a long time, maybe even hours. If you want to build these for Fedora instead of RHEL, when running mock you should replace epel-6-x86\_64 with fedora-19-x86\_64. Also, you can skip building the lxc rpm because it already exists in Fedora's repository.
 
     # build docker rpm
-    spectool -g -C docker docker/docker.spec 
-    mock -r epel-6-x86_64 --buildsrpm --spec docker/docker.spec --sources docker --resultdir output
-    mock -r epel-6-x86_64 --rebuild --resultdir output output/docker-0.5.3-1.el6.src.rpm 
+    spectool -g -C lxc-docker lxc-docker/lxc-docker.spec 
+    mock -r epel-6-x86_64 --buildsrpm --spec lxc-docker/lxc-docker.spec --sources lxc-docker --resultdir output
+    mock -r epel-6-x86_64 --rebuild --resultdir output output/lxc-docker-0.6.3-1.el6.src.rpm 
 
     # build lxc rpm
     spectool -g -C lxc lxc/lxc.spec
@@ -26,7 +26,7 @@ You can build the packages with the following commands. Note that building the k
 The resulting RPMs will be placed in a directory named _output_. You can install them with
 
     cd output
-    yum localinstall --nogpgcheck kernel-ml-aufs-3.10.11-1.el6.x86_64.rpm lxc-0.8.0-3.el6.x86_64.rpm lxc-libs-0.8.0-3.el6.x86_64.rpm docker-0.5.3-1.el6.x86_64.rpm
+    yum localinstall --nogpgcheck kernel-ml-aufs-3.10.11-1.el6.x86_64.rpm lxc-0.8.0-3.el6.x86_64.rpm lxc-libs-0.8.0-3.el6.x86_64.rpm lxc-docker-0.6.3-1.el6.x86_64.rpm
 
 In order to use docker, you'll need to configure the cgroup filesystem and reboot into your new kernel. Add the line 
 
