@@ -1,18 +1,18 @@
 Name:           lxc-docker
-Version:        0.6.3
-Release:        2%{?dist}
+Version:        0.6.5
+Release:        1%{?dist}
 Summary:        An open source project to pack, ship and run any application as a lightweight container
 
 Group:         Applications/System
-License:       Apache-2.0 
+License:       Apache-2.0
 URL:           http://www.docker.io/
-Source0:       http://get.docker.io/builds/Linux/x86_64/docker-latest.tgz 
+Source0:       http://get.docker.io/builds/Linux/x86_64/docker-%{version}
 Source1:       docker.upstart
 Requires(pre): shadow-utils
 
 # can't build debug package since not compiling docker ourself
 %define debug_package %{nil}
-%define archivedir docker-latest
+%define archivedir docker-%{version}
 %define realname docker
 
 %description
@@ -20,7 +20,7 @@ Docker is an open-source engine that automates the deployment of any application
 
 
 %prep
-%setup -q -n %{archivedir}
+%setup -q -c %{archivedir} -T
 
 
 %build
@@ -30,7 +30,7 @@ Docker is an open-source engine that automates the deployment of any application
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/bin
-install %{_builddir}/%{archivedir}/docker %{buildroot}%{_bindir}/%{realname}
+install -m 0755 %{SOURCE0} %{buildroot}%{_bindir}/%{realname}
 mkdir -p %{buildroot}/etc/init
 install -m 0644 %{SOURCE1} %{buildroot}/%{_sysconfdir}/init/%{realname}.conf
 
