@@ -7,7 +7,7 @@ You can build the packages with the following commands. Note that building the k
     # build docker rpm
     spectool -g -C lxc-docker lxc-docker/lxc-docker.spec
     mock -r epel-6-x86_64 --buildsrpm --spec lxc-docker/lxc-docker.spec --sources lxc-docker --resultdir output
-    mock -r epel-6-x86_64 --rebuild --resultdir output output/lxc-docker-0.6.5-1.el6.src.rpm
+    mock -r epel-6-x86_64 --rebuild --resultdir output output/lxc-docker-0.6.7-1.el6.src.rpm
 
     # build lxc rpm
     spectool -g -C lxc lxc/lxc.spec
@@ -26,7 +26,7 @@ You can build the packages with the following commands. Note that building the k
 The resulting RPMs will be placed in a directory named _output_. You can install them with
 
     cd output
-    yum localinstall --nogpgcheck kernel-ml-aufs-3.10.11-1.el6.x86_64.rpm lxc-0.8.0-3.el6.x86_64.rpm lxc-libs-0.8.0-3.el6.x86_64.rpm lxc-docker-0.6.5-1.el6.x86_64.rpm
+    yum localinstall --nogpgcheck kernel-ml-aufs-3.10.11-1.el6.x86_64.rpm lxc-0.8.0-3.el6.x86_64.rpm lxc-libs-0.8.0-3.el6.x86_64.rpm lxc-docker-0.6.7-1.el6.x86_64.rpm
 
 In order to use docker, you'll need to configure the cgroup filesystem and reboot into your new kernel. Add the line
 
