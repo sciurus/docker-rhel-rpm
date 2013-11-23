@@ -1,5 +1,5 @@
 Name:           lxc-docker
-Version:        0.6.5
+Version:        0.6.7
 Release:        1%{?dist}
 Summary:        An open source project to pack, ship and run any application as a lightweight container
 
