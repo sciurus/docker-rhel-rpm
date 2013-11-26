@@ -1,4 +1,11 @@
-This repository contains the files needed to build RPMs for the dependencies of [Docker](http://docker.io) on Red Hat Enterprise Linux 6 and derivatives like CentOS and Scientific Linux. The kernel spec file is based on the [kernel-ml](http://elrepo.org/tiki/kernel-ml) package from ELRepo but adds [aufs](http://aufs.sourceforge.net/) support. The lxc spec file is copied from [Fedora](https://admin.fedoraproject.org/pkgdb/acls/name/lxc).
+As of 2013/11/26
+
+* Docker 0.7 has been [released](http://blog.docker.io/2013/11/docker-0-7-docker-now-runs-on-any-linux-distribution/#more-1596) and supports devicemapper thin provisioning as an alternative to aufs
+* Docker has been packaged in [Fedora and EPEL](https://admin.fedoraproject.org/pkgdb/acls/name/docker-io)
+
+Thus the work in this repository is no longer necessary.
+
+This repository contains the files needed to build RPMs for the dependencies of [Docker](http://docker.io) released before 0.7 on Red Hat Enterprise Linux 6 and derivatives like CentOS and Scientific Linux. The kernel spec file is based on the [kernel-ml](http://elrepo.org/tiki/kernel-ml) package from ELRepo but adds [aufs](http://aufs.sourceforge.net/) support. The lxc spec file is copied from [Fedora](https://admin.fedoraproject.org/pkgdb/acls/name/lxc).
 
 Before building the packages, be sure to install [fedora-packager](https://dl.fedoraproject.org/pub/epel/6/x86_64/repoview/fedora-packager.html) and add yourself to the _mock_ group.
 
