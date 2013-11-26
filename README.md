@@ -18,7 +18,7 @@ You can build the packages with the following commands. Note that building the k
     spectool -g -C kernel-ml-aufs kernel-ml-aufs/kernel-ml-aufs-3.10.spec
     git clone git://git.code.sf.net/p/aufs/aufs3-standalone -b aufs3.10
     pushd aufs3-standalone
-    git archive aufs3.10 > ../kernel-ml-aufs/aufs3-standalone.tar
+    git archive 9929e444955f467073ebedf254a9ac0f7a5df1c5 > ../kernel-ml-aufs/aufs3-standalone.tar
     popd
     mock -r epel-6-x86_64 --buildsrpm --spec kernel-ml-aufs/kernel-ml-aufs-3.10.spec --sources kernel-ml-aufs --resultdir output
     mock -r epel-6-x86_64 --rebuild --resultdir output output/kernel-ml-aufs-3.10.11-1.el6.src.rpm
